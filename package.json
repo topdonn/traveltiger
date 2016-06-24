@@ -1,5 +1,5 @@
 {
-  "name": "Travel Tiger",
+  "name": "traveltiger",
   "version": "1.0.3",
   "scripts": {
     "dev": "DB=traveltiger LEVEL=silly PORT=3333 nodemon dst/server.js"
