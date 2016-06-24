@@ -10,5 +10,8 @@ const countrySchema = new Schema({
   balance: Number,
 });
 
+countrySchema.statics.getAllCountries = function (err, cb) {
+  return this.find(cb);
+};
 
 module.exports = mongoose.model('Country', countrySchema);

@@ -1,3 +1,18 @@
 extends ../shared/template
 block content
-  h1 Country
+  h1 Create A New Country
+  ul
+    li
+      span Name
+      input#countryName(type=text)
+    li
+      span Photo
+      input#countryPhoto(type=text)
+
+    button#createCountry Create Country
+
+  if countries
+    h2 List of Available Countries
+      ul#countries
+        each country in countries
+          li #{country.name} #{country.balance}

@@ -2,7 +2,6 @@ $(document).ready(initialize);
 
 function initialize() {
   console.log("Inside initialize");
-  debugger;
   $('#profile').click(createProfile);
   }
 

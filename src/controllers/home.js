@@ -2,7 +2,6 @@
 import express from 'express';
 const router = module.exports = express.Router();
 import Person from '../models/person';
-import City from '../models/city';
 import Country from '../models/country';
 
 router.get('/', (req, res) => {
@@ -37,9 +36,24 @@ router.get('/viewTravel', (req, res) => {
 });
 
 router.get('/country', (req, res) => {
-  res.render('home/country');
+  Country.find((err, countries) => {
+    res.render('home/country', { countries });
+  });
+});
+
+router.post('/country', (req, res) => {
+  const c = new Country(req.body);
+  c.save(() => {
+    res.send(c);
+  });
 });
 
 router.get('/city', (req, res) => {
-  res.render('travel/city');
+  res.render('home/city');
 });
+
+// router.get('/city', (req, res) => {
+//   // const countryList = new Country(req.body);
+//   // res.render('home/city', { countryList });
+//   res.render('home/city');
+// });
