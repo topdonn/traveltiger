@@ -1,6 +1,9 @@
 $(document).ready(init);
 
 function init() {
+  console.log('Inside Init');
+  const name = $('#name').val();
+  console.log("Name Is", name);
   $('#profile').click(createProfile);
   }
 

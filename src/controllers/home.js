@@ -9,25 +9,17 @@ router.get('/', (req, res) => {
   res.render('home/index');
 });
 
-router.get('/about', (req, res) => {
-  res.render('home/about');
-});
-
-router.get('/faq', (req, res) => {
-  res.render('home/faq');
-});
-
 router.get('/profile', (req, res) => {
   res.render('home/profile');
 });
 
 router.post('/profile', (req, res) => {
   const g = new Person(req.body);
+  console.log("Person Is", req.body);
   g.save(() => {
     res.send(g);
   });
 });
-
 
 router.get('/registration', (req, res) => {
   res.render('home/registration');
@@ -46,7 +38,7 @@ router.get('/city', (req, res) => {
 });
 
 router.get('/display', (req, res) => {
-Person.findOne({ 'name': 'od' }, function (err, person) {
-  res.send(person);
+  Person.findOne({ 'name': 'od' }, function (err, person) {
+  //res.render(person);
   });
 });
