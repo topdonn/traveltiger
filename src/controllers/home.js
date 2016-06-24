@@ -28,6 +28,7 @@ router.post('/profile', (req, res) => {
   });
 });
 
+
 router.get('/registration', (req, res) => {
   res.render('home/registration');
 });
@@ -42,4 +43,10 @@ router.get('/country', (req, res) => {
 
 router.get('/city', (req, res) => {
   res.render('travel/city');
+});
+
+router.get('/display', (req, res) => {
+Person.findOne({ 'name': 'od' }, function (err, person) {
+  console.log(person.gender); // Space Ghost is a talk show host.
+  });
 });

@@ -10,5 +10,4 @@ const personSchema = new Schema({
   balance: Number,
 });
 
-
 module.exports = mongoose.model('Person', personSchema);
