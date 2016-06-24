@@ -1,3 +1,18 @@
 extends ../shared/template
 block content
-  h1 City
+  h1 Create A New City
+  ul
+    li
+      span Name
+      input#cityName(type=text)
+    li
+      span Photo
+      input#cityPhoto(type=text)
+
+    button#createCity Create City
+
+  //- if cities
+  //-   h2 List of Available Cities
+  //-     ul#cities
+  //-       each city in cities
+  //-         li #{city.name} #{city.balance}
