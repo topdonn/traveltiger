@@ -27,6 +27,7 @@ router.post('/profile', (req, res) => {
   });
 });
 
+
 router.get('/registration', (req, res) => {
   res.render('home/registration');
 });
@@ -52,8 +53,8 @@ router.get('/city', (req, res) => {
   res.render('home/city');
 });
 
-// router.get('/city', (req, res) => {
-//   // const countryList = new Country(req.body);
-//   // res.render('home/city', { countryList });
-//   res.render('home/city');
-// });
+router.get('/display', (req, res) => {
+Person.findOne({ 'name': 'od' }, function (err, person) {
+  res.send(person);
+  });
+});
