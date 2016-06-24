@@ -1,7 +1,6 @@
 $(document).ready(init);
 
 function init() {
-  console.log("Inside initialize");
   $('#profile').click(createProfile);
   }
 

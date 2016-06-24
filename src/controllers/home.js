@@ -47,6 +47,6 @@ router.get('/city', (req, res) => {
 
 router.get('/display', (req, res) => {
 Person.findOne({ 'name': 'od' }, function (err, person) {
-  console.log(person.gender); // Space Ghost is a talk show host.
+  res.send(person);
   });
 });
