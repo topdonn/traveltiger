@@ -1,21 +1,20 @@
 extends ../shared/template
 block content
-  h1 Display
-  h1 Customer Profile
-  ul
-    li
-      #display
-      span Name
-      #name
-    li
-      span Gender
-      #gender
-    li
-      span Photo
-      #photo
-    li
-      span City
-      #city
-    li
-      span balance
-      #balance
+  h1 List of Current Clients
+  table.table.table-striped
+    thead
+      tr
+        th Name
+        th Gender
+        th City
+        th Country
+        th Balance
+        th Photo
+    tbody
+      each person in people
+        tr
+          td= person.name
+          td= person.gender
+          td= person.city
+          td= person.country
+          td= person.balance

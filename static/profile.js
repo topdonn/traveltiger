@@ -1,9 +1,7 @@
 $(document).ready(init);
 
 function init() {
-  console.log('Inside Init');
   const name = $('#name').val();
-  console.log("Name Is", name);
   $('#profile').click(createProfile);
   }
 
@@ -12,12 +10,13 @@ function createProfile() {
   const gender = $('#gender').val();
   const photo = $('#photo').val();
   const city = $('#city').val();
+  const country = $('#country').val();
 
   $.ajax({
     url: '/profile',
     method: 'post',
     dataType: 'json',
-    data: { name, gender, photo, city },
+    data: { name, gender, photo, city, country },
     success: function(rsp){
       alert('Done!');
     }

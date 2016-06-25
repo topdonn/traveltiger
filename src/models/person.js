@@ -6,6 +6,7 @@ const personSchema = new Schema({
   name: String,
   gender: String,
   photo: String,
+  country: String,
   cities: [{ type: Schema.Types.ObjectId, ref: 'City' }],
   balance: Number,
 });

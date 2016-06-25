@@ -69,7 +69,10 @@ router.get('/city', (req, res) => {
 });
 
 router.get('/display', (req, res) => {
-  Person.findOne({ name: 'od' }, (err, person) => {
-    res.send(person);
+  Person.find((err, people) => {
+    console.log('People', people);
+    res.render('home/display', { people });
+    const returnValue = { people };
+    return returnValue;
   });
 });
