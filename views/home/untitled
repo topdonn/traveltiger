@@ -1,0 +1,19 @@
+.row
+  .col-xs-6
+    .form-group.form-group-sm
+      label(for='name') Name
+      input#name.form-control(type='text')
+    .form-group.form-group-sm
+      label(for='city') City
+      input#city.form-control(type='text')
+    .form-group.form-group-sm
+      label(for='city') Gender
+      input#gender.form-control(type='text')
+    .form-group.form-group-sm
+      label(for='country') Country
+      input#country.form-control(type='text')
+    .form-group.form-group-sm
+      label(for='balance') Balance
+      input#balance.form-control(type='text')
+    .form-group.form-group-sm
+      button#profile Create Profile

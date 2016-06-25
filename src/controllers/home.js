@@ -14,7 +14,6 @@ router.get('/profile', (req, res) => {
 
 router.post('/profile', (req, res) => {
   const g = new Person(req.body);
-  console.log("Person Is", req.body);
   g.save(() => {
     res.send(g);
   });

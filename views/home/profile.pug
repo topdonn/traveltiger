@@ -1,22 +1,25 @@
 extends ../shared/template
 block content
-  h1 Create A New Customer Profile
+  h1 Create A New Client Profile
   .row
     .col-xs-6
       .form-group.form-group-sm
         label(for='name') Name
-        input#name.form-control(type='text', name=name)
+        input#name.form-control(type='text')
       .form-group.form-group-sm
         label(for='city') City
-        input#city.form-control(type='text', name=city)
+        input#city.form-control(type='text')
       .form-group.form-group-sm
         label(for='city') Gender
-        input#gender.form-control(type='text', name=gender)
+        input#gender.form-control(type='text')
       .form-group.form-group-sm
         label(for='country') Country
-        input#country.form-control(type='text', name=country)
+        input#country.form-control(type='text')
+      .form-group.form-group-sm
+        label(for='photo') Photo
+        input#photo.form-control(type='text')
       .form-group.form-group-sm
         label(for='balance') Balance
-        input#balance.form-control(type='text', name=country)
+        input#balance.form-control(type='text')
       .form-group.form-group-sm
-        button.btn.btn-primary(type='button') Create Profile
+        button#profile.btn.btn-primary Create Profile
