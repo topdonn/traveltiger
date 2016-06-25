@@ -1,9 +1,8 @@
-/* eslint-disable new-cap */
+/* eslint-disable new-cap, array-callbacl-return */
 import express from 'express';
 const router = module.exports = express.Router();
 import Person from '../models/person';
 import Country from '../models/country';
-import City from '../models/city';
 
 router.get('/', (req, res) => {
   res.render('home/index');
@@ -43,25 +42,14 @@ router.post('/country', (req, res) => {
   });
 });
 
-router.post('/city', (req, res) => {
-  const c = new City(req.body);
-  c.save(() => {
-    res.send(c);
-  });
-});
-
 router.get('/city', (req, res) => {
-  City.find((err, cities) => {
-    res.render('home/city', { cities });
-    const returnValue = { cities };
-    return returnValue;
-  });
+  res.render('home/city');
 });
 
 router.get('/display', (req, res) => {
-  Person.findOne({ 'name': 'od' }, function (err, person) {
-  //res.render(person);
-  Person.findOne({ name: 'od' }, (err, person) => {
-    res.send(person);
+  Person.find((err, people) => {
+    res.render('home/display', { people });
+    const returnValue = { people };
+    return returnValue;
   });
 });
