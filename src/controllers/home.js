@@ -1,11 +1,20 @@
-/* eslint-disable new-cap, array-callbacl-return */
+/* eslint-disable new-cap */
 import express from 'express';
 const router = module.exports = express.Router();
 import Person from '../models/person';
 import Country from '../models/country';
+import City from '../models/city';
 
 router.get('/', (req, res) => {
   res.render('home/index');
+});
+
+router.get('/about', (req, res) => {
+  res.render('home/about');
+});
+
+router.get('/faq', (req, res) => {
+  res.render('home/faq');
 });
 
 router.get('/profile', (req, res) => {
@@ -18,6 +27,7 @@ router.post('/profile', (req, res) => {
     res.send(g);
   });
 });
+
 
 router.get('/registration', (req, res) => {
   res.render('home/registration');
@@ -42,14 +52,24 @@ router.post('/country', (req, res) => {
   });
 });
 
+router.post('/city', (req, res) => {
+  const c = new City(req.body);
+  c.save(() => {
+    res.send(c);
+  });
+});
+
+
 router.get('/city', (req, res) => {
-  res.render('home/city');
+  City.find((err, cities) => {
+    res.render('home/city', { cities });
+    const returnValue = { cities };
+    return returnValue;
+  });
 });
 
 router.get('/display', (req, res) => {
-  Person.find((err, people) => {
-    res.render('home/display', { people });
-    const returnValue = { people };
-    return returnValue;
+  Person.findOne({ name: 'od' }, (err, person) => {
+    res.send(person);
   });
 });
