@@ -10,7 +10,6 @@ function createProfile() {
   const gender = $('#gender').val();
   const photo = $('#photo').val();
   const city = $('#city').val();
-  const country = $('#country').val();
 
   $.ajax({
     url: '/profile',
