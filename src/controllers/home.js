@@ -3,6 +3,7 @@ import express from 'express';
 const router = module.exports = express.Router();
 import Person from '../models/person';
 import Country from '../models/country';
+import City from '../models/city';
 
 router.get('/', (req, res) => {
   res.render('home/index');
@@ -30,6 +31,8 @@ router.get('/viewTravel', (req, res) => {
 router.get('/country', (req, res) => {
   Country.find((err, countries) => {
     res.render('home/country', { countries });
+    const returnValue = { countries };
+    return returnValue;
   });
 });
 
@@ -40,12 +43,25 @@ router.post('/country', (req, res) => {
   });
 });
 
+router.post('/city', (req, res) => {
+  const c = new City(req.body);
+  c.save(() => {
+    res.send(c);
+  });
+});
+
 router.get('/city', (req, res) => {
-  res.render('home/city');
+  City.find((err, cities) => {
+    res.render('home/city', { cities });
+    const returnValue = { cities };
+    return returnValue;
+  });
 });
 
 router.get('/display', (req, res) => {
   Person.findOne({ 'name': 'od' }, function (err, person) {
   //res.render(person);
+  Person.findOne({ name: 'od' }, (err, person) => {
+    res.send(person);
   });
 });
