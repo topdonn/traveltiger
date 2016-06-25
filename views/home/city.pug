@@ -11,8 +11,8 @@ block content
 
     button#createCity Create City
 
-  //- if cities
-  //-   h2 List of Available Cities
-  //-     ul#cities
-  //-       each city in cities
-  //-         li #{city.name} #{city.balance}
+  if cities
+    h2 List of Available Cities
+      ul#cities
+        each city in cities
+          li #{city.name} #{city.balance}
